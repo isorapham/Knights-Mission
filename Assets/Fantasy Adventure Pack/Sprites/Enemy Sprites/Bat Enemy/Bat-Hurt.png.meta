@@ -1,26 +1,22 @@
 fileFormatVersion: 2
-guid: 2579ae2a8cd5a8c49962f3b6c7b533f2
-AssetOrigin:
-  serializedVersion: 1
-  productId: 162831
-  packageName: Metroidvania Adventure
-  packageVersion: 1.0
-  assetPath: Assets/Fantasy Adventure Pack/Sprites/Boss Sprites/Boss_Roar.png
-  uploadId: 736370
+guid: 9164e3f160f7f524f82ff882c7e2b54e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3470690521555736551
-    second: Boss_Roar_0
+      213: -4707698567282657342
+    second: Bat-Hurt_0
   - first:
-      213: 5595458151239546252
-    second: Boss_Roar_1
+      213: 8954069028433373776
+    second: Bat-Hurt_1
   - first:
-      213: -7402485606211069764
-    second: Boss_Roar_2
+      213: -3182077731557891935
+    second: Bat-Hurt_2
   - first:
-      213: 1747662477862508457
-    second: Boss_Roar_3
+      213: -4262820519508893310
+    second: Bat-Hurt_3
+  - first:
+      213: 4066643789057198174
+    second: Bat-Hurt_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -53,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,14 +80,14 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,21 +99,8 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,8 +112,8 @@ TextureImporter:
     buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -142,89 +125,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boss_Roar_0
+      name: Bat-Hurt_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 180
-        height: 132
+        x: 14
+        y: 23
+        width: 36
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7e715ae04ae5a2030800000000000000
-      internalID: 3470690521555736551
+      spriteID: 2c770837815eaaeb0800000000000000
+      internalID: -4707698567282657342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Roar_1
+      name: Bat-Hurt_1
       rect:
         serializedVersion: 2
-        x: 180
-        y: 0
-        width: 180
-        height: 132
+        x: 93
+        y: 23
+        width: 22
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c857234ea8f07ad40800000000000000
-      internalID: 5595458151239546252
+      spriteID: 05a2916375e334c70800000000000000
+      internalID: 8954069028433373776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Roar_2
+      name: Bat-Hurt_2
       rect:
         serializedVersion: 2
-        x: 360
-        y: 0
-        width: 180
-        height: 132
+        x: 159
+        y: 23
+        width: 21
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: cb8d8daaf86154990800000000000000
-      internalID: -7402485606211069764
+      spriteID: 1a0afca992df6d3d0800000000000000
+      internalID: -3182077731557891935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Roar_3
+      name: Bat-Hurt_3
       rect:
         serializedVersion: 2
-        x: 540
-        y: 0
-        width: 180
-        height: 132
+        x: 210
+        y: 23
+        width: 29
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9a7164c93c1f04810800000000000000
-      internalID: 1747662477862508457
+      spriteID: 2812d69a25b67d4c0800000000000000
+      internalID: -4262820519508893310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat-Hurt_4
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 23
+        width: 36
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e588dcaeafe9f6830800000000000000
+      internalID: 4066643789057198174
       vertices: []
       indices: 
       edges: []
@@ -233,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -243,10 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boss_Roar_0: 3470690521555736551
-      Boss_Roar_1: 5595458151239546252
-      Boss_Roar_2: -7402485606211069764
-      Boss_Roar_3: 1747662477862508457
+      Bat-Hurt_0: -4707698567282657342
+      Bat-Hurt_1: 8954069028433373776
+      Bat-Hurt_2: -3182077731557891935
+      Bat-Hurt_3: -4262820519508893310
+      Bat-Hurt_4: 4066643789057198174
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

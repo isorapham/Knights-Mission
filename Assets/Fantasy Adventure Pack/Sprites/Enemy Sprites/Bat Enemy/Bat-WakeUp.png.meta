@@ -1,68 +1,55 @@
 fileFormatVersion: 2
-guid: 62d446d8071b6434a846646f90c9a9e2
-AssetOrigin:
-  serializedVersion: 1
-  productId: 162831
-  packageName: Metroidvania Adventure
-  packageVersion: 1.0
-  assetPath: Assets/Fantasy Adventure Pack/Sprites/Boss Sprites/Boss_TakeOff.png
-  uploadId: 736370
+guid: cc4587afef6a97344b85a7ac6754fca7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7981768890724170753
-    second: Boss_TakeOff_0
+      213: -4050778345494000673
+    second: Bat-WakeUp_0
   - first:
-      213: -2602173671352513448
-    second: Boss_TakeOff_1
+      213: -88695921673209687
+    second: Bat-WakeUp_1
   - first:
-      213: -8952763942809355517
-    second: Boss_TakeOff_2
+      213: -2291356068208840101
+    second: Bat-WakeUp_2
   - first:
-      213: -3141727424587258642
-    second: Boss_TakeOff_3
+      213: 6914229940882939354
+    second: Bat-WakeUp_3
   - first:
-      213: -4722948019991395973
-    second: Boss_TakeOff_4
+      213: 8073469086898407717
+    second: Bat-WakeUp_4
   - first:
-      213: 7076181151678872849
-    second: Boss_TakeOff_5
+      213: -2707541318519708097
+    second: Bat-WakeUp_5
   - first:
-      213: 5371543845316041615
-    second: Boss_TakeOff_6
+      213: -7928539036747898812
+    second: Bat-WakeUp_6
   - first:
-      213: -610365303882985117
-    second: Boss_TakeOff_7
+      213: -1435221459344306688
+    second: Bat-WakeUp_7
   - first:
-      213: -7363982157361742757
-    second: Boss_TakeOff_8
+      213: 4840812318307214234
+    second: Bat-WakeUp_8
   - first:
-      213: -2305795334000040689
-    second: Boss_TakeOff_9
+      213: -691472580880114381
+    second: Bat-WakeUp_9
   - first:
-      213: -3189493097086729772
-    second: Boss_TakeOff_10
+      213: 5094273727882498433
+    second: Bat-WakeUp_10
   - first:
-      213: 8518492034083618898
-    second: Boss_TakeOff_11
+      213: -9201611559319902821
+    second: Bat-WakeUp_11
   - first:
-      213: 8286639223943548038
-    second: Boss_TakeOff_12
+      213: -7376687697434040988
+    second: Bat-WakeUp_12
   - first:
-      213: 357349225855098465
-    second: Boss_TakeOff_13
+      213: 4627126346126928963
+    second: Bat-WakeUp_13
   - first:
-      213: -4029175475040747667
-    second: Boss_TakeOff_14
+      213: 5263993374577511869
+    second: Bat-WakeUp_14
   - first:
-      213: 8661693512491164472
-    second: Boss_TakeOff_15
-  - first:
-      213: -1609947950827694237
-    second: Boss_TakeOff_16
-  - first:
-      213: -6548379813405524857
-    second: Boss_TakeOff_17
+      213: 6729410298874452860
+    second: Bat-WakeUp_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -95,7 +82,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -126,14 +113,14 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -145,21 +132,8 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -171,8 +145,8 @@ TextureImporter:
     buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -184,397 +158,353 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boss_TakeOff_0
+      name: Bat-WakeUp_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 264
-        width: 180
-        height: 132
+        x: 26
+        y: 25
+        width: 12
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ff34f1dab7f0b3190800000000000000
-      internalID: -7981768890724170753
+      spriteID: fdb4cf48e8eb8c7c0800000000000000
+      internalID: -4050778345494000673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_1
+      name: Bat-WakeUp_1
       rect:
         serializedVersion: 2
-        x: 180
-        y: 264
-        width: 180
-        height: 132
+        x: 90
+        y: 25
+        width: 12
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 85cc82335d833ebd0800000000000000
-      internalID: -2602173671352513448
+      spriteID: 9a874a77783e4cef0800000000000000
+      internalID: -88695921673209687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_2
+      name: Bat-WakeUp_2
       rect:
         serializedVersion: 2
-        x: 360
-        y: 264
-        width: 180
-        height: 132
+        x: 154
+        y: 25
+        width: 12
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 30b3ce6b0a461c380800000000000000
-      internalID: -8952763942809355517
+      spriteID: b52f97ccbc77330e0800000000000000
+      internalID: -2291356068208840101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_3
+      name: Bat-WakeUp_3
       rect:
         serializedVersion: 2
-        x: 540
-        y: 264
-        width: 180
-        height: 132
+        x: 218
+        y: 27
+        width: 12
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ee4af5c8d875664d0800000000000000
-      internalID: -3141727424587258642
+      spriteID: add92b18f7744ff50800000000000000
+      internalID: 6914229940882939354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_4
+      name: Bat-WakeUp_4
       rect:
         serializedVersion: 2
-        x: 720
-        y: 264
-        width: 180
-        height: 132
+        x: 281
+        y: 27
+        width: 18
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b7147cf8cc7b47eb0800000000000000
-      internalID: -4722948019991395973
+      spriteID: 5294da50c59ba0070800000000000000
+      internalID: 8073469086898407717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_5
+      name: Bat-WakeUp_5
       rect:
         serializedVersion: 2
-        x: 900
-        y: 264
-        width: 180
-        height: 132
+        x: 343
+        y: 29
+        width: 29
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 11d32282445a33260800000000000000
-      internalID: 7076181151678872849
+      spriteID: f36a0f61481ec6ad0800000000000000
+      internalID: -2707541318519708097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_6
+      name: Bat-WakeUp_6
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 264
-        width: 180
-        height: 132
+        x: 401
+        y: 20
+        width: 34
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f8b9f7beaae8b8a40800000000000000
-      internalID: 5371543845316041615
+      spriteID: 440e2d6d0cb28f190800000000000000
+      internalID: -7928539036747898812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_7
+      name: Bat-WakeUp_7
       rect:
         serializedVersion: 2
-        x: 1260
-        y: 264
-        width: 180
-        height: 132
+        x: 468
+        y: 17
+        width: 23
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 361d4de6dfb8787f0800000000000000
-      internalID: -610365303882985117
+      spriteID: 00ec3c5dfa1151ce0800000000000000
+      internalID: -1435221459344306688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_8
+      name: Bat-WakeUp_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 132
-        width: 180
-        height: 132
+        x: 535
+        y: 10
+        width: 18
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b5c73227e31edc990800000000000000
-      internalID: -7363982157361742757
+      spriteID: a936901e7250e2340800000000000000
+      internalID: 4840812318307214234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_9
+      name: Bat-WakeUp_9
       rect:
         serializedVersion: 2
-        x: 180
-        y: 132
-        width: 180
-        height: 132
+        x: 601
+        y: 8
+        width: 14
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f05ac204c5b2000e0800000000000000
-      internalID: -2305795334000040689
+      spriteID: 33dd7bce9556766f0800000000000000
+      internalID: -691472580880114381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_10
+      name: Bat-WakeUp_10
       rect:
         serializedVersion: 2
-        x: 360
-        y: 132
-        width: 180
-        height: 132
+        x: 662
+        y: 7
+        width: 20
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4d1c5964de4acb3d0800000000000000
-      internalID: -3189493097086729772
+      spriteID: 1819a0307fe72b640800000000000000
+      internalID: 5094273727882498433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_11
+      name: Bat-WakeUp_11
       rect:
         serializedVersion: 2
-        x: 540
-        y: 132
-        width: 180
-        height: 132
+        x: 718
+        y: 17
+        width: 35
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2508c814f53c73670800000000000000
-      internalID: 8518492034083618898
+      spriteID: b95eb9df90f4d4080800000000000000
+      internalID: -9201611559319902821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_12
+      name: Bat-WakeUp_12
       rect:
         serializedVersion: 2
-        x: 720
-        y: 132
-        width: 180
-        height: 132
+        x: 791
+        y: 22
+        width: 18
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 68c49fc387e000370800000000000000
-      internalID: 8286639223943548038
+      spriteID: 465237f5f9db0a990800000000000000
+      internalID: -7376687697434040988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_13
+      name: Bat-WakeUp_13
       rect:
         serializedVersion: 2
-        x: 900
-        y: 132
-        width: 180
-        height: 132
+        x: 857
+        y: 21
+        width: 14
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 16e9ad34a3f85f400800000000000000
-      internalID: 357349225855098465
+      spriteID: 34c2fbf65ead63040800000000000000
+      internalID: 4627126346126928963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_14
+      name: Bat-WakeUp_14
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 132
-        width: 180
-        height: 132
+        x: 922
+        y: 23
+        width: 12
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d6ffa70c04e7518c0800000000000000
-      internalID: -4029175475040747667
+      spriteID: dbdc3b795167d0940800000000000000
+      internalID: 5263993374577511869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_TakeOff_15
+      name: Bat-WakeUp_15
       rect:
         serializedVersion: 2
-        x: 1260
-        y: 132
-        width: 180
-        height: 132
+        x: 981
+        y: 28
+        width: 21
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8336755ab54843870800000000000000
-      internalID: 8661693512491164472
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_TakeOff_16
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 180
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3671c0c5ed058a9e0800000000000000
-      internalID: -1609947950827694237
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_TakeOff_17
-      rect:
-        serializedVersion: 2
-        x: 180
-        y: 0
-        width: 180
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78cff97214b7f15a0800000000000000
-      internalID: -6548379813405524857
+      spriteID: c7b544c430ba36d50800000000000000
+      internalID: 6729410298874452860
       vertices: []
       indices: 
       edges: []
@@ -583,7 +513,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -593,24 +523,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boss_TakeOff_0: -7981768890724170753
-      Boss_TakeOff_1: -2602173671352513448
-      Boss_TakeOff_10: -3189493097086729772
-      Boss_TakeOff_11: 8518492034083618898
-      Boss_TakeOff_12: 8286639223943548038
-      Boss_TakeOff_13: 357349225855098465
-      Boss_TakeOff_14: -4029175475040747667
-      Boss_TakeOff_15: 8661693512491164472
-      Boss_TakeOff_16: -1609947950827694237
-      Boss_TakeOff_17: -6548379813405524857
-      Boss_TakeOff_2: -8952763942809355517
-      Boss_TakeOff_3: -3141727424587258642
-      Boss_TakeOff_4: -4722948019991395973
-      Boss_TakeOff_5: 7076181151678872849
-      Boss_TakeOff_6: 5371543845316041615
-      Boss_TakeOff_7: -610365303882985117
-      Boss_TakeOff_8: -7363982157361742757
-      Boss_TakeOff_9: -2305795334000040689
+      Bat-WakeUp_0: -4050778345494000673
+      Bat-WakeUp_1: -88695921673209687
+      Bat-WakeUp_10: 5094273727882498433
+      Bat-WakeUp_11: -9201611559319902821
+      Bat-WakeUp_12: -7376687697434040988
+      Bat-WakeUp_13: 4627126346126928963
+      Bat-WakeUp_14: 5263993374577511869
+      Bat-WakeUp_15: 6729410298874452860
+      Bat-WakeUp_2: -2291356068208840101
+      Bat-WakeUp_3: 6914229940882939354
+      Bat-WakeUp_4: 8073469086898407717
+      Bat-WakeUp_5: -2707541318519708097
+      Bat-WakeUp_6: -7928539036747898812
+      Bat-WakeUp_7: -1435221459344306688
+      Bat-WakeUp_8: 4840812318307214234
+      Bat-WakeUp_9: -691472580880114381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
