@@ -1,27 +1,88 @@
-﻿using UnityEngine;
+using System;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask layerToCheck;
+    private float walkSpeed = 5f;
     [SerializeField]
-    private float moveSpeed;
+    private float runSpeed = 10f;
+    Vector2 moveInput;
+    public float CurrentMoveSpeed
+    {
+        get
+        {
+            if (IsMoving)
+            {
+                if (IsRunning)
+                {
+                    return runSpeed;
+                }
+                else
+                {
+                    return walkSpeed;
+                }
+            }
+            else
+            {
+                return 0; // Idle
+            }
+        }
+    }
     [SerializeField]
-    private float jumpForce;
+    private bool _isMoving = false;
+    public bool IsMoving
+    {
+        get
+        { 
+            return _isMoving; 
+        }
+        private set
+        {
+            _isMoving = value;
+            animator.SetBool("isMoving", value);
+        }
+    }
+
     [SerializeField]
-    private float dashSpeed;
-    [SerializeField]
-    private float dashTime;
+    private bool _isRunning = false;
+    public bool IsRunning
+    {
+        get
+        {
+            return _isRunning;
+        }
+        set
+        {
+            _isRunning = value;
+            animator.SetBool("isRunning", value);
+        }
+    }
+
+    public bool _isFacingRight = true;
+    public bool IsFacingRight { get
+        {
+            return _isFacingRight;
+        }
+        private set
+        {
+            if (_isFacingRight != value)
+            {
+                transform.localScale *= new Vector2(-1, 1);
+            }
+            _isFacingRight=value;
+        }
+        }
+
+    public Rigidbody2D rb;
+    Animator animator;
 
 
-    [SerializeField]
-    private Rigidbody2D playerRb;
-    [SerializeField]
-    private Transform groundPoint;
-
-    private bool isOnGround;
-    private bool isDoubleJump;
-
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,34 +92,45 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xAxis = Input.GetAxisRaw("Horizontal");
-        playerRb.linearVelocity = new Vector2(xAxis * moveSpeed, playerRb.linearVelocity.y);
-        if (playerRb.linearVelocityX < 0)
+
+    }
+
+    private void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.linearVelocity.y);
+        animator = GetComponent<Animator>();
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+        IsMoving = moveInput != Vector2.zero;
+        SetFacingDirection(moveInput);
+    }
+
+    private void SetFacingDirection(Vector2 moveInput)
+    {
+        if(moveInput.x > 0 && !IsFacingRight)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            IsFacingRight = true;
+            //face right
         }
-        else if (playerRb.linearVelocityX > 0)
+        else if(moveInput.x < 0 && IsFacingRight)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            IsFacingRight = false;
+            //face left
         }
+    }
 
-        //kiểm tra chạm đất
-        isOnGround = Physics2D.OverlapCircle(groundPoint.position, 0.2f, layerToCheck);
-        // Debug.Log($"{isOnGround}");
-
-        // nhảy
-        if (Input.GetButtonDown("Jump") && (isOnGround || (isDoubleJump)))
+    public void OnRun(InputAction.CallbackContext context)
+    {
+        if (context.started)
         {
-            if (isOnGround)
-            {
-                isDoubleJump = true;
-            }
-            else
-            {
-
-                isDoubleJump = false;
-            }
-            playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, jumpForce);
+            IsRunning = true;
+        }
+        else if (context.canceled)
+        {
+            IsRunning = false;
         }
 
     }
