@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 7908971249756263651}
   - component: {fileID: 8241356364318074973}
   - component: {fileID: 1949474415804710530}
-  - component: {fileID: 5440592788187394114}
+  - component: {fileID: 4098900629477088656}
+  - component: {fileID: 7311888412226412067}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -389,7 +390,7 @@ MonoBehaviour:
   _isGrounded: 0
   _isOnWall: 0
   _isOnCeiling: 0
---- !u!114 &5440592788187394114
+--- !u!114 &4098900629477088656
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -398,9 +399,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 3463648596684409997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511c928411279c94aa71153ab5e01e61, type: 3}
+  m_Script: {fileID: 11500000, guid: 657477139ae78894a98ea12d1966b7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
-  currentHealth: 0
-  invicibilityTime: 0
+  damageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+  _maxHealth: 100
+  _health: 100
+  _isAlive: 1
+  isInvincible: 0
+  timeSinceHit: 0
+  invincibilityTimer: 1
+--- !u!114 &7311888412226412067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463648596684409997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657477139ae78894a98ea12d1966b7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageableHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3335464008441361414}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnHit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _maxHealth: 100
+  _health: 100
+  _isAlive: 1
+  isInvincible: 0
+  timeSinceHit: 0
+  invincibilityTimer: 0.25
