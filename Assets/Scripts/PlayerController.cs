@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     Vector2 moveInput;
 
     TouchingDirections touchingDirections;
+    Damageable damageable;
 
     public float CurrentMoveSpeed
     {
@@ -106,14 +107,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public bool lockVelocity
-    {
-        get
-        {
-            return animator.GetBool(AnimationStrings.lockVelocity);
-        }
-    }
-
+   
     public Rigidbody2D rb;
     Animator animator;
 
@@ -123,6 +117,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
+        damageable= GetComponent<Damageable>();
 
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -139,7 +134,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!lockVelocity)
+        if (!damageable.LockVelocity)
             rb.linearVelocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.linearVelocity.y);
         animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
     }

@@ -18,8 +18,8 @@ TagManager:
   - Enemies
   - PlayerHitbox
   - EnemiesHitbox
-  - 
-  - 
+  - GroundDetection
+  - Pickup
   - 
   - 
   - 

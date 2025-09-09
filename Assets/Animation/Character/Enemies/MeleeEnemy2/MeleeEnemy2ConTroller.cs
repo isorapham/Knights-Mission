@@ -5,10 +5,12 @@ public class MeleeEnemy2ConTroller : MonoBehaviour
 {
     public float walkSpeed = 3f;
     public float walkStopRate = 0.05f;
+    public DetectionZone cliffDetectionZone;
     public DetectionZone attackZone;
     Rigidbody2D rb;
     TouchingDirections touchingDirections;
     Animator animator;
+    Damageable damageable;
 
     public enum WalkableDirection { Right, Left }
 
@@ -60,15 +62,30 @@ public class MeleeEnemy2ConTroller : MonoBehaviour
         }
     }
 
+    public float AttackCoolDown { 
+        get
+        {
+            return animator.GetFloat(AnimationStrings.attackCooldown);
+        }
+        private set
+        {
+            animator.SetFloat(AnimationStrings.attackCooldown, Mathf.Max(value,0));
+        } }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         touchingDirections = GetComponent<TouchingDirections>();
         animator = GetComponent<Animator>();
+        damageable = GetComponent<Damageable>();
     }
     void Update()
     {
         HasTarget = attackZone.detectedColliders.Count > 0;
+        if (AttackCoolDown > 0)
+        {
+            AttackCoolDown -= Time.deltaTime;
+        }
     }
     void FixedUpdate()
     {
@@ -76,14 +93,18 @@ public class MeleeEnemy2ConTroller : MonoBehaviour
         {
             FlipDirection();
         }
-        if (CanMove)
+        if (!damageable.LockVelocity)
         {
-            rb.linearVelocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.linearVelocityY);
+            if (CanMove)
+            {
+                rb.linearVelocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.linearVelocityY);
+            }
+            else
+            {
+                rb.linearVelocity = new Vector2(Mathf.Lerp(rb.linearVelocity.x, 0, walkStopRate), rb.linearVelocityY);
+            }
         }
-        else
-        {
-            rb.linearVelocity = new Vector2(Mathf.Lerp(rb.linearVelocity.x,0,walkStopRate), rb.linearVelocityY);
-        }
+        
     }
 
     private void FlipDirection()
@@ -99,6 +120,19 @@ public class MeleeEnemy2ConTroller : MonoBehaviour
         else
         {
             Debug.LogError("Loi roi");
+        }
+    }
+
+    public void OnHit(int damage, Vector2 knockback)
+    {
+        rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocityY + knockback.y);
+    }
+
+    public void OnCliffDectection()
+    {
+        if (touchingDirections.IsGrounded)
+        {
+            FlipDirection();
         }
     }
 }
