@@ -83,7 +83,7 @@ public class Damageable : MonoBehaviour
             // Tăng bộ đếm thời gian
             timeSinceHit += Time.deltaTime;
         }
-        //Hit(10); // test thử (bị comment lại)
+        
     }
 
     // Hàm xử lý khi bị đánh
