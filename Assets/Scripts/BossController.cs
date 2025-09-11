@@ -1,96 +1,139 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Damageable))]
 public class BossController : MonoBehaviour
 {
-    [Header("Target")]
-    public Transform player;
+    public float walkSpeed = 3f;
+    public float walkStopRate = 0.05f;
+    public DetectionZone cliffDetectionZone;
+    public DetectionZone attackZone;
+    Rigidbody2D rb;
+    TouchingDirections touchingDirections;
+    Animator animator;
+    Damageable damageable;
 
-    [Header("Movement")]
-    public float moveSpeed = 2f;
-    public float chaseRange = 8f;
-    public float attackRange = 3f;
+    public enum WalkableDirection { Right, Left }
 
-    private Rigidbody2D rb;
-    private Animator animator;
-    private Damageable damageable;
+    private WalkableDirection _walkDirection;
+    private Vector2 walkDirectionVector = Vector2.right;
+    public WalkableDirection WalkDirection
+    {
+        get { return _walkDirection; }
+        set
+        {
+            if (_walkDirection != value)
+            {
+                if (value == WalkableDirection.Right)
+                    transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                else
+                    transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
 
-    private bool isAttacking = false;
+                if (value == WalkableDirection.Right)
+                {
+                    walkDirectionVector = Vector2.right;
+                }
+                else if (value == WalkableDirection.Left)
+                {
 
-    void Awake()
+                    walkDirectionVector = Vector2.left;
+
+                }
+                _walkDirection = value;
+            }
+        }
+    }
+    public bool _hasTarget = false;
+    public bool HasTarget
+    {
+        get
+        { return _hasTarget; }
+        private set
+        {
+            _hasTarget = value;
+            animator.SetBool(AnimationStrings.hasTarget, value);
+        }
+    }
+
+    public bool CanMove
+    {
+        get
+        {
+            return animator.GetBool(AnimationStrings.canMove);
+        }
+    }
+
+    public float AttackCoolDown
+    {
+        get
+        {
+            return animator.GetFloat(AnimationStrings.attackCooldown);
+        }
+        private set
+        {
+            animator.SetFloat(AnimationStrings.attackCooldown, Mathf.Max(value, 0));
+        }
+    }
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        touchingDirections = GetComponent<TouchingDirections>();
         animator = GetComponent<Animator>();
         damageable = GetComponent<Damageable>();
     }
-
     void Update()
     {
-        if (!damageable.IsAlive) return;
-        if (player == null) return;
-
-        float distance = Vector2.Distance(transform.position, player.position);
-
-        if (!isAttacking)
+        HasTarget = attackZone.detectedColliders.Count > 0;
+        if (AttackCoolDown > 0)
         {
-            if (distance <= attackRange)
+            AttackCoolDown -= Time.deltaTime;
+        }
+    }
+    void FixedUpdate()
+    {
+        if (touchingDirections.IsGrounded && touchingDirections.IsOnWall)
+        {
+            FlipDirection();
+        }
+        if (!damageable.LockVelocity)
+        {
+            if (CanMove)
             {
-                ChooseAttack();
-            }
-            else if (distance <= chaseRange)
-            {
-                ChasePlayer();
+                rb.linearVelocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.linearVelocityY);
             }
             else
             {
-                Idle();
+                rb.linearVelocity = new Vector2(Mathf.Lerp(rb.linearVelocity.x, 0, walkStopRate), rb.linearVelocityY);
             }
         }
 
-        // Xoay mặt về phía player
-        if (player.position.x > transform.position.x)
-            transform.localScale = new Vector3(1, 1, 1);
+    }
+
+    private void FlipDirection()
+    {
+        if (WalkDirection == WalkableDirection.Right)
+        {
+            WalkDirection = WalkableDirection.Left;
+        }
+        else if (WalkDirection == WalkableDirection.Left)
+        {
+            WalkDirection = WalkableDirection.Right;
+        }
         else
-            transform.localScale = new Vector3(-1, 1, 1);
+        {
+            Debug.LogError("Loi roi");
+        }
     }
 
-    void Idle()
+    public void OnHit(int damage, Vector2 knockback)
     {
-        rb.linearVelocity = Vector2.zero;
-        animator.SetBool(AnimationStrings.isMoving, false);
+        rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocityY + knockback.y);
     }
 
-    void ChasePlayer()
+    public void OnCliffDectection()
     {
-        animator.SetBool(AnimationStrings.isMoving, true);
-        Vector2 dir = (player.position - transform.position).normalized;
-        rb.linearVelocity = new Vector2(dir.x * moveSpeed, rb.linearVelocity.y);
-    }
-
-    void ChooseAttack()
-    {
-        // Phase dựa trên máu
-        int phase = damageable.Health <= damageable.MaxHealth / 2 ? 2 : 1;
-        animator.SetInteger("phase", phase);
-
-        int attackType;
-        if (phase == 1)
-            attackType = Random.Range(1, 3); // Spike hoặc Roll
-        else
-            attackType = Random.Range(1, 4); // Spike, Roll, thêm Roar
-
-        animator.SetInteger("attackType", attackType);
-        animator.SetTrigger(AnimationStrings.attackTrigger);
-
-        rb.linearVelocity = Vector2.zero;
-        isAttacking = true;
-    }
-
-    // Gọi từ Animation Event khi attack kết thúc
-    public void EndAttack()
-    {
-        isAttacking = false;
-        animator.SetInteger("attackType", 0);
+        if (touchingDirections.IsGrounded)
+        {
+            FlipDirection();
+        }
     }
 }
