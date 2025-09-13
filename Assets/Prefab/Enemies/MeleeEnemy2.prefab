@@ -336,6 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657477139ae78894a98ea12d1966b7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  bossHealthBar: {fileID: 0}
   damageableHit:
     m_PersistentCalls:
       m_Calls:
@@ -356,7 +358,7 @@ MonoBehaviour:
   _isAlive: 1
   isInvincible: 0
   timeSinceHit: 0
-  invincibilityTimer: 0.5
+  invincibilityTimer: 0.25
 --- !u!1 &7370469351381248378
 GameObject:
   m_ObjectHideFlags: 0

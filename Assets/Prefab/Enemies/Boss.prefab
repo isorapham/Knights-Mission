@@ -297,7 +297,7 @@ MonoBehaviour:
   _isAlive: 1
   isInvincible: 0
   timeSinceHit: 0
-  invincibilityTimer: 1
+  invincibilityTimer: 0.5
 --- !u!70 &6206266389463774320
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -393,6 +393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f434057c45f55b646a4dce87a8a07df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageable: {fileID: 0}
+  mainMenu: {fileID: 0}
 --- !u!1 &4738865929912891231
 GameObject:
   m_ObjectHideFlags: 0
