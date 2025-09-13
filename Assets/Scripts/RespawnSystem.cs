@@ -51,7 +51,12 @@ public class RespawnSystem : MonoBehaviour
 
         damageable.Health = damageable.MaxHealth; // Hồi đầy máu
         damageable.IsAlive = true;                // Sống lại
+        if (damageable.healthBar != null)
+        {
+            damageable.healthBar.SetMaxHealth(damageable.MaxHealth);
+            damageable.healthBar.SetHealth(damageable.Health);
+        }
 
-        Debug.Log($"Respawn lần {respawnCount}/{maxRespawns}");
+            Debug.Log($"Respawn lần {respawnCount}/{maxRespawns}");
     }
 }

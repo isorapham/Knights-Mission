@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ProjectileLauncher : MonoBehaviour
 {
@@ -6,6 +6,7 @@ public class ProjectileLauncher : MonoBehaviour
     public Transform launchPoint;
     public void FireProjectile()
     {
-         Instantiate(projectilePrefab, launchPoint.position, projectilePrefab.transform.rotation);
+        GameObject projectile = Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity);
+        projectile.transform.localScale = transform.localScale; // copy hướng nhân vật
     }
 }

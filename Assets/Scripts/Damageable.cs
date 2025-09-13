@@ -3,6 +3,9 @@ using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour
 {
+    public UIHealthBar healthBar;
+    public UIHealthBarBoss bossHealthBar;
+
     // Sự kiện khi bị trúng đòn, truyền vào lượng damage (int) và lực đẩy knockback (Vector2)
     public UnityEvent<int, Vector2> damageableHit;
 
@@ -69,6 +72,17 @@ public class Damageable : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(MaxHealth);
+        }
+        if (bossHealthBar != null)
+        {
+            bossHealthBar.Initialize(MaxHealth);
+        }
+    }
     private void Update()
     {
         // Nếu đang bất tử sau khi bị đánh
@@ -83,7 +97,6 @@ public class Damageable : MonoBehaviour
             // Tăng bộ đếm thời gian
             timeSinceHit += Time.deltaTime;
         }
-        
     }
 
     // Hàm xử lý khi bị đánh
@@ -103,6 +116,10 @@ public class Damageable : MonoBehaviour
             // → Bắn sự kiện toàn cục characterDamaged 
             // → Truyền vào: gameObject (nhân vật bị đánh) và damage (lượng sát thương)
             // → Giúp các script khác (ví dụ UI máu, popup sát thương, hệ thống log...) có thể lắng nghe
+            if (healthBar != null)
+            {
+                healthBar.SetHealth(Health);
+            }
 
             return true;                   // Trả về true = đã nhận damage
         }
@@ -125,8 +142,32 @@ public class Damageable : MonoBehaviour
             // 🔥 Bắn sự kiện toàn cục characterHealed
             // → Truyền vào: gameObject (nhân vật được hồi máu) và actualHeal (lượng máu hồi)
             CharacterEvents.characterHealed(gameObject, actualHeal);
+
+            if (healthBar != null)
+            {
+                healthBar.SetHealth(Health);
+            }
             return true;
         }
         return false ;
+    }
+    public void Respawn()
+    {
+        // Đặt lại trạng thái sống
+        IsAlive = true;
+
+        // Mở khoá di chuyển
+        LockVelocity = false;
+
+        // Reset máu đầy
+        Health = MaxHealth;  // setter sẽ tự cập nhật UI HealthBar
+
+        // Reset animation nếu cần
+        if (animator != null)
+        {
+            animator.Play("Idle"); // hoặc state Idle/Respawn tuỳ animator của bạn
+        }
+
+        Debug.Log($"{gameObject.name} đã respawn, máu đầy {Health}/{MaxHealth}");
     }
 }

@@ -197,6 +197,7 @@ MonoBehaviour:
   playOnEnter: 1
   playOnExit: 0
   playAfterDelay: 0
+  stopWhenAnimationEnds: 0
   playDelay: 0.25
 --- !u!1101 &-6367156868261487917
 AnimatorStateTransition:
@@ -323,10 +324,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundToPlay: {fileID: 8300000, guid: cc6ea26489de20a43ab5a55f83b84105, type: 3}
-  volume: 1
+  volume: 3
   playOnEnter: 1
   playOnExit: 0
   playAfterDelay: 0
+  stopWhenAnimationEnds: 0
   playDelay: 0.25
 --- !u!114 &-4474345088605432964
 MonoBehaviour:
@@ -345,6 +347,7 @@ MonoBehaviour:
   playOnEnter: 1
   playOnExit: 0
   playAfterDelay: 0
+  stopWhenAnimationEnds: 0
   playDelay: 0.25
 --- !u!1101 &-4387268911726283283
 AnimatorStateTransition:
@@ -596,10 +599,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundToPlay: {fileID: 8300000, guid: 4ea2734a997309f4f8eae22da29cfff2, type: 3}
-  volume: 2
+  volume: 3
   playOnEnter: 1
   playOnExit: 0
   playAfterDelay: 0
+  stopWhenAnimationEnds: 0
   playDelay: 0.25
 --- !u!1101 &-2962434368396484140
 AnimatorStateTransition:
@@ -784,7 +788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundToPlay: {fileID: 8300000, guid: 7f49a6f20a43f2d4bad46bf20f42a33b, type: 3}
-  volume: 0.5
+  volume: 1
 --- !u!1102 &-30525045546055504
 AnimatorState:
   serializedVersion: 6
@@ -944,6 +948,7 @@ MonoBehaviour:
   playOnEnter: 1
   playOnExit: 0
   playAfterDelay: 0
+  stopWhenAnimationEnds: 0
   playDelay: 0.25
 --- !u!1109 &1849104047553276749
 AnimatorTransition:
@@ -1460,6 +1465,7 @@ MonoBehaviour:
   playOnEnter: 1
   playOnExit: 0
   playAfterDelay: 0
+  stopWhenAnimationEnds: 0
   playDelay: 0.25
 --- !u!114 &6861636361466629554
 MonoBehaviour:
@@ -1478,6 +1484,7 @@ MonoBehaviour:
   playOnEnter: 1
   playOnExit: 0
   playAfterDelay: 0
+  stopWhenAnimationEnds: 0
   playDelay: 0.25
 --- !u!1101 &6894251448846231843
 AnimatorStateTransition:
@@ -1655,6 +1662,9 @@ AnimatorStateMachine:
   - {fileID: 6593502570709821855}
   m_EntryTransitions: []
   m_StateMachineTransitions:
+  - first: {fileID: -7986642153291502797}
+    second:
+    - {fileID: 997681613874944643}
   - first: {fileID: -7822675742259885850}
     second:
     - {fileID: 6412546365282284775}
@@ -1664,9 +1674,6 @@ AnimatorStateMachine:
   - first: {fileID: -1512066857196906971}
     second:
     - {fileID: 1849104047553276749}
-  - first: {fileID: -7986642153291502797}
-    second:
-    - {fileID: 997681613874944643}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 560, y: 250, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}

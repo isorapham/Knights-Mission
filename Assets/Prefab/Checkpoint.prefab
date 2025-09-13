@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8066696094638084357}
   - component: {fileID: 1495431339516351916}
   - component: {fileID: 2743359850854591622}
+  - component: {fileID: 4561731088514628112}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -147,6 +148,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b298ad0e5f63cd743a1248e9811a550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flagSprite: {fileID: 0}
-  activeColor: {r: 0, g: 1, b: 0, a: 1}
-  inactiveColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &4561731088514628112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407514353865382072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c895bbbeee606144a5543061c3ce6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossUIController: {fileID: 0}
+  musicSource: {fileID: 0}
+  bossMusic: {fileID: 0}

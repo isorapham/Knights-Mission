@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2629724917781382924}
   m_Layer: 10
   m_Name: SwordAttack1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 583563164790862978}
   m_Layer: 10
   m_Name: SwordAttack2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 8365214832011915251}
   m_Layer: 10
   m_Name: SwordAttack3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -789,9 +789,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 363692708229122031}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BowAttack
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

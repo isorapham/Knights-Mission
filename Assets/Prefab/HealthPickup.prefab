@@ -5142,7 +5142,7 @@ GameObject:
   - component: {fileID: 764133924118779306}
   - component: {fileID: 2855360404976206905}
   m_Layer: 13
-  m_Name: Particle System
+  m_Name: BlingEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

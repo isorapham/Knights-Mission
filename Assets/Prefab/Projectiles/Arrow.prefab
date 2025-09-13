@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7941540738521988961}
   m_Layer: 10
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,8 +103,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: {x: 8, y: 0}
-  knockback: {x: 10, y: 0}
+  knockback: {x: 2, y: 0}
   damage: 10
+  lifeTime: 5
 --- !u!50 &367812318415606551
 Rigidbody2D:
   serializedVersion: 5

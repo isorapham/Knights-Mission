@@ -1,28 +1,55 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayOneShotBehaviour : StateMachineBehaviour
 {
     public AudioClip soundToPlay;
-    public float volume = 2f;
+    [Tooltip("Âm lượng, có thể > 1 nếu muốn tăng cường độ")]
+    public float volume = 1f;
     public bool playOnEnter = true, playOnExit = false, playAfterDelay = false;
+    public bool stopWhenAnimationEnds = false; // 🔴 mới thêm
 
     public float playDelay = 0.25f;
-    private float timeSinceEntered = 0;
-    private bool hasDelayedSoundPlayed=false;
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+
+    private float timeSinceEntered = 0f;
+    private bool hasDelayedSoundPlayed = false;
+    private AudioSource activeAudioSource; // lưu AudioSource hiện tại để stop nếu cần
+
+    private void PlaySound(Animator animator)
+    {
+        if (soundToPlay == null) return;
+
+        // Nếu đã có AudioSource cũ, xoá nó để tránh trùng
+        if (activeAudioSource != null)
+        {
+            Object.Destroy(activeAudioSource);
+        }
+
+        // Tạo AudioSource tạm
+        activeAudioSource = animator.gameObject.AddComponent<AudioSource>();
+        activeAudioSource.clip = soundToPlay;
+        activeAudioSource.volume = volume;
+        activeAudioSource.spatialBlend = 0f; // 2D sound
+        activeAudioSource.Play();
+
+        if (!stopWhenAnimationEnds)
+        {
+            // Nếu không cần stop sớm → để nó tự hủy sau khi xong
+            Object.Destroy(activeAudioSource, soundToPlay.length);
+        }
+    }
+
+    // Khi state bắt đầu
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (playOnEnter)
         {
-            {
-                AudioSource.PlayClipAtPoint(soundToPlay, animator.gameObject.transform.position, volume);
-            }
-            timeSinceEntered = 0f;
-            hasDelayedSoundPlayed = false;
+            PlaySound(animator);
         }
+        timeSinceEntered = 0f;
+        hasDelayedSoundPlayed = false;
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    // Khi state đang chạy
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (playAfterDelay && !hasDelayedSoundPlayed)
@@ -30,20 +57,26 @@ public class PlayOneShotBehaviour : StateMachineBehaviour
             timeSinceEntered += Time.deltaTime;
             if (timeSinceEntered > playDelay)
             {
-                AudioSource.PlayClipAtPoint(soundToPlay, animator.gameObject.transform.position, volume);
+                PlaySound(animator);
                 hasDelayedSoundPlayed = true;
             }
         }
     }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    // Khi state kết thúc
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (playOnExit)
         {
-            {
-                AudioSource.PlayClipAtPoint(soundToPlay, animator.gameObject.transform.position, volume);
-            }
+            PlaySound(animator);
+        }
+
+        // 🔴 Nếu bật tùy chọn stopWhenAnimationEnds → dừng âm thanh ngay
+        if (stopWhenAnimationEnds && activeAudioSource != null)
+        {
+            activeAudioSource.Stop();
+            Object.Destroy(activeAudioSource);
+            activeAudioSource = null;
         }
     }
 }
